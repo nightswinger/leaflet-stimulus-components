@@ -14,7 +14,6 @@ export default class extends LayerController {
   }
 
   connect() {
-    console.log("MarkerController#connect")
     this.marker = L.marker(this.positionValue, { draggable: this.draggableValue })
     this.add(this.marker)
 

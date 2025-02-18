@@ -1,0 +1,23 @@
+{
+  "name": "leaflet-stimulus-components",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist/leaflet-stimulus-components.umd.cjs",
+  "module": "dist/leaflet-stimulus-components.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "build": "vite build && tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types"
+  },
+  "devDependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@types/leaflet": "^1.9.16",
+    "leaflet": "^1.9.4",
+    "typescript": "~5.7.2",
+    "vite": "^6.1.0"
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "leaflet": "^1.9.4"
+  }
+}

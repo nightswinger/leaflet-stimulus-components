@@ -5,8 +5,9 @@ export default class extends Controller {
   declare divIcon: L.DivIcon
   declare html: string
 
-  declare iconSizeValue: L.Point
-  declare iconAnchorValue: L.Point
+  declare iconSizeValue: L.PointExpression
+  declare iconAnchorValue: L.PointExpression
+  declare popupAnchorValue: L.PointExpression
 
   declare htmlValue: string | HTMLElement
   declare classNameValue: string
@@ -14,6 +15,7 @@ export default class extends Controller {
   static values = {
     iconSize: { type: Array, default: null },
     iconAnchor: { type: Array, default: null },
+    popupAnchor: { type: Array, default: [0, 0] },
   
     html: String,
     className: String,
@@ -28,6 +30,7 @@ export default class extends Controller {
     this.divIcon = L.divIcon({
       iconSize: this.iconSizeValue,
       iconAnchor: this.iconAnchorValue,
+      popupAnchor: this.popupAnchorValue,
       html: this.htmlValue || this.html,
       className: this.classNameValue,
     })

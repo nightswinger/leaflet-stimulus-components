@@ -1,5 +1,5 @@
 import L from "leaflet"
-import LayerController from "./layer_controller"
+import LayerController from "./layer-controller"
 
 export default class extends LayerController {
   declare tileLayer: L.TileLayer

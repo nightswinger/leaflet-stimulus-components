@@ -14,12 +14,14 @@ export default class extends PathController {
   }
 
   connect() {
-    this.circleMarker = L.circleMarker(this.centerValue, {
-      color: this.colorValue,
-      fillColor: this.fillColorValue,
-      fillOpacity: this.fillOpacityValue,
-      radius: this.radiusValue,
-    })
+    this.circleMarker = L.circleMarker(this.centerValue, this.options)
     this.add(this.circleMarker)
+  }
+
+  get options() {
+    return {
+      ...super.options,
+      radius: this.radiusValue,
+    }
   }
 }

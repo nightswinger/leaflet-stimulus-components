@@ -3,7 +3,6 @@ import L from "leaflet"
 
 export default class extends Controller {
   declare divIcon: L.DivIcon
-  declare html: string
 
   declare iconSizeValue: L.PointExpression
   declare iconAnchorValue: L.PointExpression
@@ -21,17 +20,12 @@ export default class extends Controller {
     className: String,
   }
 
-  initialize(): void {
-    this.html = this.element.innerHTML
-    this.element.innerHTML = ""
-  }
-
   connect() {
     this.divIcon = L.divIcon({
       iconSize: this.iconSizeValue,
       iconAnchor: this.iconAnchorValue,
       popupAnchor: this.popupAnchorValue,
-      html: this.htmlValue || this.html,
+      html: this.htmlValue,
       className: this.classNameValue,
     })
     this.dispatch("icon:set", { detail: this.divIcon, prefix: "leaflet" })

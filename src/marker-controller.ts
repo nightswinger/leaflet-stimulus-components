@@ -16,8 +16,6 @@ export default class extends LayerController {
   }
 
   connect() {
-    super.connect()
-
     this.layer = L.marker(this.positionValue, { draggable: this.draggableValue })
     this.add(this.layer)
 

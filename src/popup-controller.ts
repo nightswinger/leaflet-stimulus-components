@@ -32,6 +32,6 @@ export default class extends LayerController {
       className: this.classNameValue,
       content: this.contentValue
     })
-    this.dispatch("popup:bindTo", { detail: this.layer, prefix: "leaflet" })
+    this.dispatch("layer:bindPopup", { detail: this.layer, prefix: "leaflet" })
   }
 }

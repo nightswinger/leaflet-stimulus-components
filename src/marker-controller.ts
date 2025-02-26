@@ -16,18 +16,12 @@ export default class extends LayerController {
   }
 
   connect() {
+    super.connect()
+
     this.layer = L.marker(this.positionValue, { draggable: this.draggableValue })
     this.add(this.layer)
 
-    this.element.addEventListener("leaflet:popup:bindTo", this.bindPopup.bind(this))
     this.element.addEventListener("leaflet:icon:set", this.setIcon.bind(this))
-  }
-
-  bindPopup(event: Event) {
-    const { detail: popup } = event as CustomEvent<L.Popup>
-
-    this.layer.bindPopup(popup)
-    event.stopPropagation()
   }
 
   setIcon(event: Event) {

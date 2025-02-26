@@ -2,8 +2,6 @@ import L from "leaflet"
 import PathController from "./path-controller"
 
 export default class extends PathController {
-  declare polyLine: L.Polyline
-
   declare positionsValue: L.LatLngExpression[]
   declare smoothFactorValue: number
   declare noClipValue: boolean
@@ -16,8 +14,8 @@ export default class extends PathController {
   }
 
   connect(): void {
-    this.polyLine = L.polyline(this.positionsValue, this.options)
-    this.add(this.polyLine)
+    this.layer = L.polyline(this.positionsValue, this.options)
+    this.add(this.layer)
   }
 
   get options(): L.PolylineOptions {

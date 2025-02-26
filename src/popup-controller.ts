@@ -2,7 +2,7 @@ import L from "leaflet"
 import LayerController from "./layer-controller"
 
 export default class extends LayerController {
-  declare popup: L.Popup
+  declare layer: L.Popup
 
   declare offsetValue?: L.PointExpression
   declare maxWidthValue?: number
@@ -24,7 +24,7 @@ export default class extends LayerController {
   }
 
   connect() {
-    this.popup = L.popup({
+    this.layer = L.popup({
       offset: this.offsetValue,
       maxWidth: this.maxWidthValue,
       minWidth: this.minWidthValue,
@@ -32,6 +32,6 @@ export default class extends LayerController {
       className: this.classNameValue,
       content: this.contentValue
     })
-    this.dispatch("popup:bindTo", { detail: this.popup, prefix: "leaflet" })
+    this.dispatch("popup:bindTo", { detail: this.layer, prefix: "leaflet" })
   }
 }

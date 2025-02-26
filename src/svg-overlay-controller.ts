@@ -2,8 +2,6 @@ import L from "leaflet"
 import layerController from "./layer-controller"
 
 export default class extends layerController {
-  declare svgOverlay: L.SVGOverlay
-
   declare boundsValue: L.LatLngBoundsExpression
   declare contentValue: string
 
@@ -17,7 +15,7 @@ export default class extends layerController {
     const template = document.createElement("template")
     template.innerHTML = this.contentValue
 
-    this.svgOverlay = L.svgOverlay(template.content.firstElementChild as SVGElement, this.boundsValue)
-    this.add(this.svgOverlay)
+    this.layer = L.svgOverlay(template.content.firstElementChild as SVGElement, this.boundsValue)
+    this.add(this.layer)
   }
 }

@@ -2,8 +2,6 @@ import L from "leaflet"
 import LayerController from "./layer-controller"
 
 export default class extends LayerController {
-  declare imageOverlay: L.ImageOverlay
-
   declare urlValue: string
   declare boundsValue: L.LatLngBoundsExpression
 
@@ -21,8 +19,8 @@ export default class extends LayerController {
         [0, 0],
         [image.height, image.width]
       ]
-      this.imageOverlay = L.imageOverlay(this.urlValue, bounds)
-      this.add(this.imageOverlay)
+      this.layer = L.imageOverlay(this.urlValue, bounds)
+      this.add(this.layer)
     }
   }
 }

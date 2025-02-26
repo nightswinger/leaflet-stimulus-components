@@ -2,8 +2,6 @@ import L from "leaflet"
 import PathController from "./path-controller"
 
 export default class extends PathController {
-  declare circleMarker: L.CircleMarker
-
   declare centerValue: L.LatLngExpression
   declare radiusValue: number
 
@@ -14,8 +12,8 @@ export default class extends PathController {
   }
 
   connect() {
-    this.circleMarker = L.circleMarker(this.centerValue, this.options)
-    this.add(this.circleMarker)
+    this.layer = L.circleMarker(this.centerValue, this.options)
+    this.add(this.layer)
   }
 
   get options() {

@@ -2,8 +2,6 @@ import L from "leaflet"
 import LayerController from "./layer-controller"
 
 export default class extends LayerController {
-  declare marker: L.Marker
-
   declare positionValue: L.LatLngExpression
   declare draggableValue: boolean
 
@@ -13,9 +11,13 @@ export default class extends LayerController {
     ...LayerController.values
   }
 
+  get marker(): L.Marker {
+    return this.layer as L.Marker
+  }
+
   connect() {
-    this.marker = L.marker(this.positionValue, { draggable: this.draggableValue })
-    this.add(this.marker)
+    this.layer = L.marker(this.positionValue, { draggable: this.draggableValue })
+    this.add(this.layer)
 
     this.element.addEventListener("leaflet:popup:bindTo", this.bindPopup.bind(this))
     this.element.addEventListener("leaflet:icon:set", this.setIcon.bind(this))
@@ -24,7 +26,7 @@ export default class extends LayerController {
   bindPopup(event: Event) {
     const { detail: popup } = event as CustomEvent<L.Popup>
 
-    this.marker.bindPopup(popup)
+    this.layer.bindPopup(popup)
     event.stopPropagation()
   }
 

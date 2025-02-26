@@ -11,17 +11,15 @@ export default abstract class extends Controller {
 
   declare boundBindPopup: (event: Event) => void
 
-  connect() {
-    this.boundBindPopup = this.bindPopup.bind(this)
-    this.element.addEventListener("leaflet:layer:bindPopup", this.boundBindPopup)
-  }
-
   disconnect() {
     this.element.removeEventListener("leaflet:layer:bindPopup", this.boundBindPopup)
   }
 
   add(layer: Layer) {
     this.dispatch("addLayer", { detail: layer, prefix: "leaflet" })
+
+    this.boundBindPopup = this.bindPopup.bind(this)
+    this.element.addEventListener("leaflet:layer:bindPopup", this.boundBindPopup)
   }
 
   bindPopup(event: Event) {

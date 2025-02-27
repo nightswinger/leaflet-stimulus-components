@@ -50,6 +50,9 @@ export default class extends Controller<HTMLElement> {
     if (!this.element.contains(event.target as Node)) return
 
     const { detail: layer } = event as CustomEvent<L.Layer>
+
+    if (this.map.hasLayer(layer)) return
+
     layer.addTo(this.map)
 
     if (this.crsValue) {

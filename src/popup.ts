@@ -1,7 +1,7 @@
 import L from "leaflet"
-import Layer from "./layer"
+import DivOverlay from "./div-overlay"
 
-export default class extends Layer {
+export default class extends DivOverlay {
   declare layer: L.Popup
 
   declare offsetValue?: L.PointExpression
@@ -13,25 +13,25 @@ export default class extends Layer {
   declare contentValue: string
 
   static values = {
-    content: String,
+    ...DivOverlay.values,
 
     offset: { type: Array, default: [0, 7] },
     maxWidth: { type: Number, default: 300 },
     minWidth: { type: Number, default: 50 },
-    maxHeight: { type: Number, default: null },
-    className: String,
-    ...Layer.values
+    maxHeight: { type: Number, default: null }
   }
 
   connect() {
-    this.layer = L.popup({
-      offset: this.offsetValue,
+    this.layer = L.popup(this.options)
+    this.dispatch("layer:bindPopup", { detail: this.layer, prefix: "leaflet" })
+  }
+
+  get options(): L.PopupOptions {
+    return {
+      ...super.options,
       maxWidth: this.maxWidthValue,
       minWidth: this.minWidthValue,
       maxHeight: this.maxHeightValue,
-      className: this.classNameValue,
-      content: this.contentValue
-    })
-    this.dispatch("layer:bindPopup", { detail: this.layer, prefix: "leaflet" })
+    }
   }
 }

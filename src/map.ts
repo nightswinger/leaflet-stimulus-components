@@ -55,7 +55,7 @@ export default class extends Controller<HTMLElement> {
 
     layer.addTo(this.map)
 
-    if (this.crsValue) {
+    if (layer instanceof L.ImageOverlay) {
       this.map.fitBounds((layer as L.ImageOverlay).getBounds())
     }
 

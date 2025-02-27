@@ -1,7 +1,7 @@
 import L from "leaflet"
-import CircleMarkerController from "./circle-marker-controller"
+import CircleMarker from "./circle-marker"
 
-export default class extends CircleMarkerController {
+export default class extends CircleMarker {
   connect() {
     this.layer = L.circle(this.centerValue, this.options)
     this.add(this.layer)

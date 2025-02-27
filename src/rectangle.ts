@@ -1,12 +1,12 @@
 import L from "leaflet"
-import PolygonController from "./polygon-controller"
+import Polygon from "./polygon"
 
-export default class extends PolygonController {
+export default class extends Polygon {
   declare boundsValue: L.LatLngBoundsExpression
 
   static values = {
     bounds: Array,
-    ...PolygonController.values,
+    ...Polygon.values,
   }
 
   connect(): void {

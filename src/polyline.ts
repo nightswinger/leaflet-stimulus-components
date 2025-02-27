@@ -1,7 +1,7 @@
 import L from "leaflet"
-import PathController from "./path-controller"
+import Path from "./path"
 
-export default class extends PathController {
+export default class extends Path {
   declare positionsValue: L.LatLngExpression[]
   declare smoothFactorValue: number
   declare noClipValue: boolean
@@ -10,7 +10,7 @@ export default class extends PathController {
     positions: Array,
     smoothFactor: { type: Number, default: 1 },
     noClip: { type: Boolean, default: false },
-    ...PathController.values,
+    ...Path.values,
   }
 
   connect(): void {

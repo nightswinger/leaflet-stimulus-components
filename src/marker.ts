@@ -1,14 +1,14 @@
 import L from "leaflet"
-import LayerController from "./layer-controller"
+import Layer from "./layer"
 
-export default class extends LayerController {
+export default class extends Layer {
   declare positionValue: L.LatLngExpression
   declare draggableValue: boolean
 
   static values = {
     position: Array,
     draggable: { type: Boolean, default: false },
-    ...LayerController.values
+    ...Layer.values
   }
 
   get marker(): L.Marker {

@@ -1,14 +1,14 @@
 import L from "leaflet"
-import layerController from "./layer-controller"
+import layer from "./layer"
 
-export default class extends layerController {
+export default class extends layer {
   declare boundsValue: L.LatLngBoundsExpression
   declare contentValue: string
 
   static values = {
     bounds: Array,
     content: String,
-    ...layerController.values
+    ...layer.values
   }
 
   connect(): void {

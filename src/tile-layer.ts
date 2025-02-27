@@ -1,12 +1,12 @@
 import L from "leaflet"
-import LayerController from "./layer-controller"
+import Layer from "./layer"
 
-export default class extends LayerController {
+export default class extends Layer {
   declare urlValue: string
 
   static values = {
     url: String,
-    ...LayerController.values
+    ...Layer.values
   }
 
   connect() {

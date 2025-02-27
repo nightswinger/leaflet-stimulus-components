@@ -1,14 +1,14 @@
 import L from "leaflet"
-import PathController from "./path-controller"
+import Path from "./path"
 
-export default class extends PathController {
+export default class extends Path {
   declare centerValue: L.LatLngExpression
   declare radiusValue: number
 
   static values = {
     center: Array,
     radius: Number,
-    ...PathController.values,
+    ...Path.values,
   }
 
   connect() {

@@ -1,6 +1,6 @@
-import LayerController from "./layer-controller"
+import Layer from "./layer"
 
-export default abstract class extends LayerController {
+export default abstract class extends Layer {
   declare strokeValue: boolean
   declare colorValue: string
   declare weightValue: number
@@ -47,7 +47,7 @@ export default abstract class extends LayerController {
     bubblingMouseEvents: { type: Boolean, default: true },
     className: String,
 
-    ...LayerController.values
+    ...Layer.values
   }
 
   get options(): L.PathOptions {

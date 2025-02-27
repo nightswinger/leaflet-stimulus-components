@@ -1,7 +1,7 @@
 import L from "leaflet"
-import LayerController from "./layer-controller"
+import Layer from "./layer"
 
-export default class extends LayerController {
+export default class extends Layer {
   declare layer: L.Popup
 
   declare offsetValue?: L.PointExpression
@@ -20,7 +20,7 @@ export default class extends LayerController {
     minWidth: { type: Number, default: 50 },
     maxHeight: { type: Number, default: null },
     className: String,
-    ...LayerController.values
+    ...Layer.values
   }
 
   connect() {

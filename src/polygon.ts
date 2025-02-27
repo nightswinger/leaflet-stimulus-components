@@ -1,9 +1,9 @@
 import L from "leaflet"
-import PolylineController from "./polyline-controller"
+import Polyline from "./polyline"
 
-export default class extends PolylineController {
+export default class extends Polyline {
   static values = {
-    ...PolylineController.values,
+    ...Polyline.values,
   }
 
   connect(): void {

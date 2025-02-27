@@ -1,6 +1,5 @@
 {
   "name": "leaflet-stimulus-components",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "main": "dist/leaflet-stimulus-components.umd.cjs",

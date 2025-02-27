@@ -3,7 +3,7 @@ import imageOverlay from "./image-overlay"
 
 export default class VideoOverlay extends imageOverlay {
   declare layer: L.VideoOverlay
-  declare urlValue: string
+  declare urlsValue: string[]
 
   declare autoplayValue: boolean
   declare loopValue: boolean
@@ -13,7 +13,7 @@ export default class VideoOverlay extends imageOverlay {
 
   static values = {
     ...imageOverlay.values,
-    url: String,
+    urls: Array,
     autoplay: { type: Boolean, default: true },
     loop: { type: Boolean, default: true },
     keepAspectRatio: { type: Boolean, default: true },
@@ -22,7 +22,7 @@ export default class VideoOverlay extends imageOverlay {
   }
 
   connect(): void {
-    this.layer = L.videoOverlay(this.urlValue, this.boundsValue, this.options)
+    this.layer = L.videoOverlay(this.urlValue || this.urlsValue, this.boundsValue, this.options)
     this.add(this.layer)
   }
 
